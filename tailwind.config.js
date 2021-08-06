@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -11,6 +12,14 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter var', defaultTheme.fontFamily.sans],
+        serif: ['Playfair Display', defaultTheme.fontFamily.serif]
+      },
+      backgroundColor: ['checked'],
+      borderColor: ['checked']
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -21,17 +30,29 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
-      black: colors.black,
-      white: colors.white,
-      gray: colors.coolGray,
+      'blue-gray': colors.blueGray,
+      'cool-gray': colors.coolGray,
+      gray: colors.gray,
+      'true-gray': colors.trueGray,
+      'warm-gray': colors.warmGray,
       red: colors.red,
-      yellow: colors.amber,
-      green: colors.emerald,
+      orange: colors.orange,
+      amber: colors.amber,
+      yellow: colors.yellow,
+      lime: colors.lime,
+      green: colors.green,
+      emerald: colors.emerald,
+      teal: colors.teal,
+      cyan: colors.cyan,
+      sky: colors.lightBlue,
       blue: colors.blue,
       indigo: colors.indigo,
-      purple: colors.violet,
+      violet: colors.violet,
+      purple: colors.purple,
+      fuchsia: colors.fuchsia,
       pink: colors.pink,
+      rose: colors.rose,
+      white: colors.white,
     },
     spacing: {
       px: '1px',
@@ -973,5 +994,9 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography')
+  ],
 }
